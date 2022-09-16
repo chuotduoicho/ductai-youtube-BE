@@ -6,7 +6,7 @@ import videoRoutes from "./routes/videos.js";
 import commentRoutes from "./routes/comments.js";
 import authRoutes from "./routes/auth.js";
 import cookieParser from "cookie-parser";
-
+const PORT = process.env.PORT || 8800;
 const app = express();
 dotenv.config();
 
@@ -40,7 +40,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(8800, () => {
+app.listen(PORT, () => {
   connect();
   console.log("Connected to Server");
 });
