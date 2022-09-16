@@ -5,7 +5,8 @@ import userRoutes from "./routes/users.js";
 import videoRoutes from "./routes/videos.js";
 import commentRoutes from "./routes/comments.js";
 import authRoutes from "./routes/auth.js";
-import cookieParser from "cookie-parser";
+import cors from "cors";
+import bodyParser from "body-parser";
 const PORT = process.env.PORT || 8800;
 const app = express();
 dotenv.config();
@@ -22,6 +23,9 @@ const connect = () => {
 };
 
 //middlewares
+app.use(cors());
+app.use(bodyParser.json({ limit: "30mb" }));
+app.use(bodyParser.urlencoded({ extended: true, limit: "30mb" }));
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
