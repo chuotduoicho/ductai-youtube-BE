@@ -7,6 +7,7 @@ import commentRoutes from "./routes/comments.js";
 import authRoutes from "./routes/auth.js";
 import cors from "cors";
 import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 const PORT = process.env.PORT || 8800;
 const app = express();
 dotenv.config();
